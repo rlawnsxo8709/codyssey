@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">JT 프로필 아바타</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#0f5f58"/>
+    </linearGradient>
+  </defs>
+  <circle cx="120" cy="120" r="120" fill="url(#bg)"/>
+  <circle cx="120" cy="120" r="104" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M40 176 Q120 136 200 176" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="18" stroke-linecap="round"/>
+  <text x="120" y="138" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="84" font-weight="800" letter-spacing="-4" fill="#ffffff">JT</text>
+  <circle cx="178" cy="132" r="7" fill="#99f6e4"/>
+</svg>

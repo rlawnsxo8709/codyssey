@@ -1,0 +1,44 @@
+# b1-1 포트폴리오를 GitHub Pages로 배포한다.
+# Pages는 브랜치 루트나 /docs만 직접 배포할 수 있으므로,
+# mission/b1-1/answers 에서 웹 자원(index.html, css, js, images)만 모아 올린다.
+name: Deploy b1-1 portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mission/b1-1/answers/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Assemble site
+        run: |
+          mkdir _site
+          cp -r mission/b1-1/answers/{index.html,css,js,images} _site/
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v5
